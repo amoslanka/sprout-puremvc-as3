@@ -1,7 +1,7 @@
 
 h1. The PureMVC AS3 Sprout Gem
 
-h4. requires sprout, v >= 1.0.26.pre
+h4. requires sprout, v >= 1.0.x.pre
 
 	The ActionScript 3 port of PureMVC wrapped in a Sprout::Specification for implementation into a sprout project and Gem::Specification for distribution as a gem.
 	
