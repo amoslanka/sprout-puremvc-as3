@@ -24,6 +24,7 @@ Sprout::Specification.new do |s|
    s.add_file_target do |t|
      t.platform = :universal
      t.add_library :swc, "../#{PureMVC_AS3::SVN_DIR}bin"
+     t.add_library :asdocs, "../#{PureMVC_AS3::SVN_DIR}asdoc"
    end
    
 end
