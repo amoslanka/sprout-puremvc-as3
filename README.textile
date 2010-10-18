@@ -19,9 +19,15 @@ Add the PureMVC_AS3 gem to your Gemfile:
 
 	<pre><code>gem "puremvc-as3"</code></pre>
 
-Add the PureMVC_AS3 library dependency to your Rakefile:
-
+Add the PureMVC_AS3 Library dependency to your Rakefile:
+	
 	<pre><code>library "puremvc-as3"</code></pre>
+	
+The swc, src, and asdocs are all available in the latest release. To include only select assets, use respective
+
+	<pre><code>library "puremvc-as3" :swc</code></pre>
+	<pre><code>library "puremvc-as3" :src</code></pre>
+	<pre><code>library "puremvc-as3" :asdocs</code></pre>
 
 Enter this shell command to resolve gem dependency:
 

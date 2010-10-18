@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
-# $:.push File.expand_path("../lib", __FILE__)
-require 'lib/puremvc-as3'
+$:.push File.expand_path("../lib", __FILE__)
+require 'rake'
+require 'puremvc-as3/version'
+
 # require "sprout-papervision/version"
 
 Gem::Specification.new do |s|
@@ -13,15 +15,14 @@ Gem::Specification.new do |s|
   s.summary     = %q{The ActionScript 3 port of PureMVC wrapped in a Sprout::Specification for implementation into a sprout project and Gem::Specification for distribution as a gem.}
   # s.description = %q{TODO: Write a gem description}
 
-  # s.rubyforge_project = "papervision3d"
-
   # s.files         = `git ls-files`.split("\n")
   # s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  # s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+
+  s.executables = ['puremvc-as3']
+  s.require_paths << 'lib'
   
   s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*', "#{PureMVC_AS3::SVN_DIR}**/*"].to_a
 
-  s.add_dependency 'sprout', '>= 1.0.26.pre'
+  s.add_dependency "flashsdk", '>= 1.0.8.pre'
   
 end

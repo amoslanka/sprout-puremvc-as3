@@ -1,20 +1,10 @@
-require 'sprout'
-# require 'papervision3d/version'
+require 'puremvc-as3/version'
+require 'flashsdk'
+require 'puremvc-as3/generators/project_generator'
 
 module PureMVC_AS3
-  # Your code goes here...
-  
-  NAME = "puremvc-as3"
-  VERSION = "2.0.4"
-  
   SVN_URL = "http://svn.puremvc.org/PureMVC_AS3/tags/#{VERSION}/"
   SVN_DIR = "./#{VERSION}/"
-  
-  # WARNING, PureMVC's download zip is version agnostic. This may result in incremented PureMVC version
-  # beyond the accurate version number of this sprout/gem.
-  
-  # Perhaps in order to correct this, the svn source should be retrieved instead. (TODO)
-  
 end
 
 Sprout::Specification.new do |s|
@@ -24,6 +14,7 @@ Sprout::Specification.new do |s|
    s.add_file_target do |t|
      t.platform = :universal
      t.add_library :swc, "../#{PureMVC_AS3::SVN_DIR}bin"
+     t.add_library :src, "../#{PureMVC_AS3::SVN_DIR}src"
      t.add_library :asdocs, "../#{PureMVC_AS3::SVN_DIR}asdoc"
    end
    

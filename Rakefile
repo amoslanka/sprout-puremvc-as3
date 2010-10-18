@@ -1,11 +1,14 @@
 require 'bundler'
-require 'lib/puremvc-as3'
-require 'lib/rake/rename'
+Bundler.require
+
 require 'rake/clean'
+require 'lib/rake/rename'
+require 'rake/testtask'
 
 CLOBBER.add PureMVC_AS3::SVN_DIR
-
 Bundler::GemHelper.install_tasks
+
+
 
 # rename 'package' task to 'package-local' task
 Rake::Task[:build].rename(:"build_gem")
@@ -22,3 +25,17 @@ task :svn_export do
   end  
 end
 
+
+
+namespace :test do
+
+  Rake::TestTask.new(:units) do |t|
+    t.libs << "test/unit"
+    t.test_files = FileList["test/unit/*_test.rb"]
+    t.verbose = true
+  end
+
+end
+
+desc "Run tests"
+task :test => 'test:units'
