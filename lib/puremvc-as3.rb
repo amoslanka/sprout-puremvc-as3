@@ -3,8 +3,6 @@ require 'flashsdk'
 require 'puremvc-as3/generators/project_generator'
 
 module PureMVC_AS3
-  SVN_URL = "http://svn.puremvc.org/PureMVC_AS3/tags/#{VERSION}/"
-  SVN_DIR = "./#{VERSION}/"
 end
 
 Sprout::Specification.new do |s|

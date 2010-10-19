@@ -1,7 +1,7 @@
 
 h1. The PureMVC AS3 Sprout Gem
 
-h4. requires sprout, v >= 1.0.x.pre
+h4. requires flashsdk gem, v >= 1.0.x.pre
 
 	The ActionScript 3 port of PureMVC wrapped in a Sprout::Specification for implementation into a sprout project and Gem::Specification for distribution as a gem.
 	
@@ -12,12 +12,12 @@ h3. Installation
 Intended for use with a project using Project Sprouts. 
 
 See information concerning Project Sprouts here: 
-* "http://github.com/lukebayes/project-sprouts" http://github.com/lukebayes/project-sprouts
-* "http://github.com/lukebayes/sprout-flashsdk" http://github.com/lukebayes/sprout-flashsdk
+* "http://github.com/lukebayes/project-sprouts":http://github.com/lukebayes/project-sprouts
+* "http://github.com/lukebayes/sprout-flashsdk":http://github.com/lukebayes/sprout-flashsdk
 
 Add the PureMVC_AS3 gem to your Gemfile:
 
-	<pre><code>gem "puremvc-as3"</code></pre>
+	<pre><code>gem "puremvc-as3", ">= 2.0.4.pre"</code></pre>
 
 Add the PureMVC_AS3 Library dependency to your Rakefile:
 	
@@ -37,7 +37,27 @@ h3. Ruby Gem
 
 The gem can be installed independently of a project entering this command:
 
-	<pre><code>gem install puremvc-as3</code></pre>
+	<pre><code>gem install puremvc-as3 --pre</code></pre>
+
+h3. TODO
+
+Generators (currently in progress)
+
+Support for Multi-Core 
+
+Add Generator/Gem hooks for additional popular PureMVC libraries. (fabrication)
+
+h3. Generators
+
+	<pre><code>puremvc-as3 ProjectName</code></pre>
+
+	• Generate appropriate PureMVC source folders
+	
+	• Main project class
+	
+	• ApplicationFacade class
+	
+	• StageMediator class
 
 h3. Additional links
 
