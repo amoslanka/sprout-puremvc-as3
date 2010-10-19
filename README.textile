@@ -1,8 +1,6 @@
 
 h1. The PureMVC AS3 Sprout Gem
 
-h4. requires flashsdk gem, v >= 1.0.x.pre
-
 	The ActionScript 3 port of PureMVC wrapped in a Sprout::Specification for implementation into a sprout project and Gem::Specification for distribution as a gem.
 	
 	The built sprout gem includes the PureMVC source code and swc, svn-exported at build-time from the official PureMVC repository. As a Sprout::Library, the swc will be copied to lib/puremvc-as3 of your sprout project.

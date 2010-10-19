@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require 'rake'
+# require 'rake'
 require 'puremvc-as3/version'
 
 # require "sprout-papervision/version"
@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
   s.executables = ['puremvc-as3']
   s.require_paths << 'lib'
   
-  # s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*', "#{PureMVC_AS3::SVN_DIR}**/*"].to_a
-  s.files = FileList["**/*"].exclude /docs|.DS_Store|generated|.svn|.git|vendor|[*]*.gem|pkg/
-  s.files = FileList.new(s.files).exclude('2.0.4/')
-
+  # s.files should not use FileList (to reduce unneeded depencency on rake)
+  s.files = Dir.glob ["{bin,lib,test}/**/*"]
+  s.files.concat Dir.glob ["README*", "Gemfile*", "Rakefile*", "*.gemspec"]
+  
   s.add_dependency "flashsdk", '>= 1.0.8.pre'
   s.add_development_dependency "shoulda"
   s.add_development_dependency "mocha"

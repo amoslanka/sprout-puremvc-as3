@@ -6,6 +6,7 @@ require 'lib/rake/rename'
 require 'rake/testtask'
 
 CLOBBER.add PureMVC_AS3::SVN_DIR
+CLEAN.add 'pkg'
 Bundler::GemHelper.install_tasks
 
 
