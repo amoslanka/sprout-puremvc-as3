@@ -49,13 +49,12 @@ h3. Generators
 
 	<pre><code>puremvc-as3 ProjectName</code></pre>
 
-	• Generate appropriate PureMVC source folders
-	
-	• Main project class
-	
-	• ApplicationFacade class
-	
-	• StageMediator class
+	* Standard PureMVC source folders
+	* Gemfile and Rakefile
+	* Main project class
+	* ApplicationFacade class
+	* StartupCommand class
+	* Compile-able out-of-the-box
 
 h3. Additional links
 
