@@ -1,9 +1,9 @@
-package com.@package_name@
+package <%= package_name %> 
 {
 
-	import com.@package_name@.commands.StartupCommand;
-	import com.@package_name@.utils.Notifications;
-	import com.@package_name@.view.StageMediator;
+	import <%= package_name %>.<%= controller %>.<%= commands %>.StartupCommand;
+	import <%= package_name %>.utils.Notifications;
+	//import <%= package_name %>.<%= view %>.StageMediator;
 	
 	import flash.display.Stage;
 	import org.puremvc.as3.interfaces.IFacade;
@@ -15,13 +15,10 @@ package com.@package_name@
 		//---------------------------------------
 		//  SINGLETON ACCESSOR
 		//---------------------------------------
-		private static var _instance					:ApplicationFacade;
+		private static var _instance:ApplicationFacade;
 		public static function getInstance():ApplicationFacade
 		{
-			if(_instance == null)
-			{
-				_instance = new ApplicationFacade(new SingletonEnforcer());
-			}
+			_instance = _instance ? _instance : new ApplicationFacade(new SingletonEnforcer());
 			return _instance;
 		}
 		

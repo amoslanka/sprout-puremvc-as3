@@ -17,7 +17,7 @@ end
 # Compile the debug swf
 mxmlc "<%= bin %>/<%= debug_swf_name %>" do |t|
   configure_mxmlc t
-  t.input = "<%= src %>/<%= class_name %>.mxml"
+  t.input = "<%= src %>/<%= class_name %>.as"
   t.debug = true
 end
 
@@ -32,7 +32,7 @@ library :asunit4
 # Compile the test swf
 mxmlc "<%= bin %>/<%= test_swf_name %>" => :asunit4 do |t|
   configure_mxmlc t
-  t.input = "<%= src %>/<%= test_runner_name %>.mxml"
+  t.input = "<%= src %>/<%= test_runner_name %>.as"
   t.library_path << "lib/asunit4/"
   t.source_path << "test"
   t.default_size = "900,550"

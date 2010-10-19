@@ -11,7 +11,6 @@ module PureMVC_AS3
     ##
     # Send flag shallow to prevent subdirectories vo, dto from being created
     add_param :shallow, Boolean
-    add_param :package, String, { :default => ""}  
     add_param :proxy, String, { :default => "proxy" }
     add_param :vo, String, { :default => "vo" }
     add_param :view, String, { :default => "view" }
@@ -20,8 +19,8 @@ module PureMVC_AS3
     add_param :model, String, { :default => "model" }
     add_param :controller, String, { :default => "controller" }
     add_param :commands, String, { :default => "commands" }
-    add_param :service, String, { :default => "service" }
     add_param :dto, String, { :default => "dto" }
+    add_param :package, String, { :default => "project" }  
 
     def manifest
       directory project_name do
@@ -36,6 +35,9 @@ module PureMVC_AS3
           template "#{project_name}.#{main_class_ext}", "PureMVCMain.as"
         
           directory package_directory do
+            
+            template "ApplicationFacade.as", "ApplicationFacade.as"
+            
             directory model do
               directory proxy
               directory vo unless shallow
@@ -43,16 +45,12 @@ module PureMVC_AS3
         
             directory view do
               directory mediators
-              # directory components ONLY IF FLEX?
-              # directory skins ONLY IF FLEX?
             end
         
             directory controller do
-              directory commands
-            end
-        
-            directory service do
-              directory dto unless shallow
+              directory commands do
+                template "StartupCommand.as", "StartupCommand.as"
+              end
             end
         
             directory 'utils' do

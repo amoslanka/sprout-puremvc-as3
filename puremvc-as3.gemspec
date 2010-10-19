@@ -26,5 +26,9 @@ Gem::Specification.new do |s|
   s.files = FileList.new(s.files).exclude('2.0.4/')
 
   s.add_dependency "flashsdk", '>= 1.0.8.pre'
+  s.add_development_dependency "shoulda"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "rcov"
+  s.add_development_dependency "rake"
   
 end
