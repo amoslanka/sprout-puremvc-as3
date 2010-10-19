@@ -21,7 +21,9 @@ Gem::Specification.new do |s|
   s.executables = ['puremvc-as3']
   s.require_paths << 'lib'
   
-  s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*', "#{PureMVC_AS3::SVN_DIR}**/*"].to_a
+  # s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*', "#{PureMVC_AS3::SVN_DIR}**/*"].to_a
+  s.files = FileList["**/*"].exclude /docs|.DS_Store|generated|.svn|.git|vendor|[*]*.gem|pkg/
+  s.files = FileList.new(s.files).exclude('2.0.4/')
 
   s.add_dependency "flashsdk", '>= 1.0.8.pre'
   

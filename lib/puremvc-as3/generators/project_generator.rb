@@ -34,27 +34,27 @@ module PureMVC_AS3
 
         directory src do
           template "#{project_name}.#{main_class_ext}", "PureMVCMain.as"
-
+        
           directory package_directory do
             directory model do
               directory proxy
               directory vo unless shallow
             end
-
+        
             directory view do
               directory mediators
               # directory components ONLY IF FLEX?
               # directory skins ONLY IF FLEX?
             end
-
+        
             directory controller do
               directory commands
             end
-
+        
             directory service do
               directory dto unless shallow
             end
-
+        
             directory 'utils' do
               template "Notifications.as", "Notifications.as"
             end
@@ -62,32 +62,32 @@ module PureMVC_AS3
           end
         end
         
-        directory test do
-          template "#{test_runner_name}.#{main_class_ext}", "AS3TestRunner.as"
-
-          directory package_directory do
-            directory model do
-              directory proxy
-              directory vo unless shallow
-            end
-
-            directory view do
-              directory mediators
-              directory components
-              directory skins
-            end
-
-            directory controller do
-              directory commands
-            end
-
-            directory service do
-              directory dto unless shallow
-            end
-
-          end
-
-        end
+        # directory test do
+        #   template "#{test_runner_name}.#{main_class_ext}", "AS3TestRunner.as"
+        # 
+        #   directory package_directory do
+        #     directory model do
+        #       directory proxy
+        #       directory vo unless shallow
+        #     end
+        # 
+        #     directory view do
+        #       directory mediators
+        #       directory components
+        #       directory skins
+        #     end
+        # 
+        #     directory controller do
+        #       directory commands
+        #     end
+        # 
+        #     directory service do
+        #       directory dto unless shallow
+        #     end
+        # 
+        #   end
+        # 
+        # end
         
       end
 

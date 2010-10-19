@@ -1,4 +1,4 @@
-package <%= package_name@ %>
+package <%= package_name %>
 {
 	
 	import flash.display.Sprite;

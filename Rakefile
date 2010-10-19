@@ -35,7 +35,20 @@ namespace :test do
     t.verbose = true
   end
 
+  namespace :gens do
+    
+    CLEAN.add 'TestProject'
+    
+    desc 'Create a test project using the generator named puremvc-as3'
+    task :as3 => [:clean, :install] do
+      puts `puremvc-as3 TestProject`
+    end
+    
+  end
+
 end
 
 desc "Run tests"
 task :test => 'test:units'
+
+# task :default => :test:gens:as3

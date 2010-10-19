@@ -1,4 +1,4 @@
-package <%= package_name@ %>.utils
+package <%= package_name %>.utils
 {
 	/**
 	 * Notification names used across the application. 
