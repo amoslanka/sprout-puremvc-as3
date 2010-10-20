@@ -10,33 +10,38 @@ module PureMVC_AS3
     
     ##
     # Send flag shallow to prevent subdirectories vo, dto from being created
-    add_param :shallow, Boolean
-    add_param :proxy, String, { :default => "proxy" }
-    add_param :vo, String, { :default => "vo" }
-    add_param :view, String, { :default => "view" }
-    add_param :mediators, String, { :default => "mediators" }
-    add_param :components, String, { :default => "components" }
-    add_param :model, String, { :default => "model" }
-    add_param :controller, String, { :default => "controller" }
-    add_param :commands, String, { :default => "commands" }
-    add_param :dto, String, { :default => "dto" }
-    add_param :package, String, { :default => "project" }  
+    add_param :shallow, Boolean,    {                           :description => "If true, only main level directories will be created." }
+    add_param :proxy, String,       { :default => "proxy",      :description => "The name of the src directory containing the proxies." }
+    add_param :vo, String,          { :default => "vo",         :description => "The name of the src directory containing the vos." }
+    add_param :view, String,        { :default => "view",       :description => "The name of the src directory containing the views." }
+    add_param :mediators, String,   { :default => "mediators",  :description => "The name of the src directory containing the mediators." }
+    # add_param :components, String,  { :default => "components", :description => "The name of the src directory containing the components."  }
+    add_param :model, String,       { :default => "model",      :description => "The name of the src directory containing the models." }
+    add_param :controller, String,  { :default => "controller", :description => "The name of the src directory containing the controllers." }
+    add_param :commands, String,    { :default => "commands",   :description => "The name of the src directory containing the commands." }
+    # add_param :dto, String,         { :default => "dto",        :description => "The name of the src directory containing the dtos." }
+    add_param :package, String,     { :default => "project",    :description => "The root package for the code to live in, using sytax like 'com/example'" }  
+
+    set :name, :puremvc
 
     def manifest
       directory project_name do
 
+        say 'Creating root level files and directories.'
+        
         template "Rakefile", "PureMVCRakefile.rb"
         template "Gemfile",  "PureMVCGemfile.rb"
         
         directory lib
         directory bin
 
+        say 'Creating src directories and classes.'
         directory src do
           template "#{project_name}.#{main_class_ext}", "PureMVCMain.as"
         
           directory package_directory do
             
-            template "ApplicationFacade.as", "ApplicationFacade.as"
+            template "ApplicationFacade.as"
             
             directory model do
               directory proxy
@@ -49,43 +54,39 @@ module PureMVC_AS3
         
             directory controller do
               directory commands do
-                template "StartupCommand.as", "StartupCommand.as"
+                template "StartupCommand.as"
               end
             end
         
             directory 'utils' do
-              template "Notifications.as", "Notifications.as"
+              template "Notifications.as"
             end
             
           end
         end
         
-        # directory test do
-        #   template "#{test_runner_name}.#{main_class_ext}", "AS3TestRunner.as"
-        # 
-        #   directory package_directory do
-        #     directory model do
-        #       directory proxy
-        #       directory vo unless shallow
-        #     end
-        # 
-        #     directory view do
-        #       directory mediators
-        #       directory components
-        #       directory skins
-        #     end
-        # 
-        #     directory controller do
-        #       directory commands
-        #     end
-        # 
-        #     directory service do
-        #       directory dto unless shallow
-        #     end
-        # 
-        #   end
-        # 
-        # end
+        say 'Creating test level files and directories.'
+        directory test do
+          template "#{test_runner_name}.#{main_class_ext}", "AS3TestRunner.as"
+          template "AllTests.as"
+          
+          directory package_directory do
+            directory model do
+              directory proxy
+              directory vo unless shallow
+            end
+        
+            directory view do
+              directory mediators
+            end
+        
+            directory controller do
+              directory commands
+            end
+        
+          end
+        
+        end unless !:test
         
       end
 

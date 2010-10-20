@@ -32,9 +32,9 @@ library :asunit4
 # Compile the test swf
 mxmlc "<%= bin %>/<%= test_swf_name %>" => :asunit4 do |t|
   configure_mxmlc t
-  t.input = "<%= src %>/<%= test_runner_name %>.as"
-  t.library_path << "lib/asunit4/"
-  t.source_path << "test"
+  t.input = "<%= test %>/<%= test_runner_name %>.as"
+  t.library_path << "<%= lib %>/asunit4/"
+  t.source_path << "<%= test %>"
   t.default_size = "900,550"
   t.debug = true
 end

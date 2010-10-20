@@ -27,9 +27,11 @@ The swc, src, and asdocs are all available in the latest release. To include onl
 	<pre><code>library "puremvc-as3" :src</code></pre>
 	<pre><code>library "puremvc-as3" :asdocs</code></pre>
 
-Enter this shell command to resolve gem dependency:
+Enter this shell command to resolve gem dependency: 
 
 	<pre><code>bundle install vendor</code></pre>
+	
+	(installs gems to ./vendor directory)
 
 h3. Ruby Gem
 

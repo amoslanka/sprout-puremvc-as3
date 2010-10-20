@@ -43,6 +43,8 @@ namespace :test do
     desc 'Create a test project using the generator named puremvc-as3'
     task :as3 => [:clean, :install] do
       puts `puremvc-as3 TestProject`
+      # puts `cd TestProject`
+      # puts `bundle install vendor`
     end
     
   end

@@ -116,6 +116,11 @@ class ProjectGeneratorTest < Test::Unit::TestCase
         # assert_match /com.developsigner.*/, content
       end
     end
+
+    should "generate a test harness parallel in new Project" do
+      
+    end
+
     
   end
 end
